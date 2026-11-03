@@ -12,6 +12,7 @@ Use the `main` branch and root folder as the Pages publishing source.
 
 - `resume.html` and `resume.md`: résumé
 - `case-study.html` and `case-study.md`: private-client project summary
-- `profile.md`: combined text available through the portfolio’s Copy as Markdown button
+- `engineering.html` and `engineering.md`: independent project design decisions
+- `profile.md`: combined résumé, case study, and engineering notes available through Copy as Markdown
 
 Bead Game’s illustration is a labeled concept placeholder.

@@ -23,7 +23,7 @@ Full-stack developer with sole ownership of a React administration application a
 
 ### Bead Game · Godot, C#
 
-Developing a procedural game with Bough, a system that generates branching bodies such as creatures and trees, along with rigging, hitboxes, animation, and textures.
+Developing Bough, a procedural body system connecting branching geometry, rigs, hitboxes, animation, and textures. Supplied geometric join specifications; integrated shared main-thread work budgets and texture-backed appearance data.
 
 ### Heart of the Witch King · TypeScript, Node.js, Local AI
 
@@ -31,7 +31,11 @@ Developing a fantasy RPG that separates deterministic game rules from an AI refe
 
 ### Necromyth · C++, Vulkan, SDL3
 
-Building a voxel game on a custom Vulkan engine, extending earlier independent graphics and game development work.
+Building a voxel game on a custom Vulkan engine. Procedural bodies derive mesh skin weights from the same scalar field that generates their surface, with role-based animation across body types.
+
+### MyriadCode · Python, FastAPI, SQLite, Agent Orchestration
+
+Built a self-hosted coding agent with script-defined tools, peer-session messaging, and configurable subagent tiers. Preserved tool-call ordering through queued message delivery and coordinated cancellation.
 
 ### Assistant · Python, Agent Tools, Accessibility
 
