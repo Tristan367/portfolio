@@ -2,3 +2,7 @@
 .copy-tools{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.copy-tools a{font-size:12px;color:var(--muted)}.portfolio-tools{padding:17px 0;justify-content:flex-end;border-bottom:1px solid var(--line)}.contact-links{display:flex;gap:20px;flex-wrap:wrap;margin-top:24px;font-size:13px;color:var(--accent)}.education-line{font-size:13px!important;color:var(--ink)!important}@media(max-width:560px){.portfolio-tools{justify-content:flex-start}.doc-bar{flex-wrap:wrap}.contact-links{gap:12px}}@media print{.copy-tools{display:none}}
 .more-work{margin-top:30px;border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;gap:20px;align-items:baseline}.more-work p{font-size:13px;color:var(--muted);margin:0}.feature-copy>.text-link{margin-bottom:20px}.project-grid .project{display:flex;flex-direction:column}.project-grid .project>.text-link{margin-top:auto}.doc h2:target{color:var(--accent)}@media(max-width:560px){.more-work{flex-direction:column;gap:12px}}
 @media(max-width:560px){.nav{gap:14px}.brand{font-size:14px;white-space:nowrap}.nav-links{font-size:11px;gap:14px;white-space:nowrap}}
+
+@media print{@page{size:Letter;margin:14mm}.doc h1{font-size:25pt;margin-bottom:10px}.doc h2{font-size:13pt;margin-top:17px;margin-bottom:8px}.doc h3{font-size:11pt;margin-top:13px;margin-bottom:6px}.doc p,.doc li{font-size:10.5pt;line-height:1.35}.doc p{margin-bottom:9px}.doc li{margin-bottom:5px}.doc ul{margin-top:6px;margin-bottom:10px}.doc-footer{display:none}}
+
+@media print{.skip{display:none!important}}

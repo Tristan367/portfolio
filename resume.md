@@ -1,6 +1,6 @@
 # Tristan Johnson
 
-Spokane, Washington · t_johnson367@outlook.com · 509-944-0379 · [GitHub](https://github.com/Tristan367)
+Spokane, Washington · t_johnson367@outlook.com · 509-944-0379 · [GitHub](https://github.com/Tristan367) · [Portfolio](https://tristan367.github.io/portfolio/)
 
 ## Software Engineer
 
@@ -18,6 +18,20 @@ Full-stack developer with sole ownership of a React administration application a
 - Built persistent drafts, autosave, version history, and publishing workflows; coordinated database and environment changes with the authorized infrastructure owners.
 - Maintained authentication and permissions using Microsoft Entra ID, MSAL, and API token validation. Added and maintained tests in an application with approximately 780 Jest tests.
 - Created an internal AI agent kit with repository guidance, reusable skills, and Playwright QA workflows. Used findings from development history to address recurring mock-data and false-success issues.
+
+### VectorNW · Web/Game Developer
+
+**October 2024–March 2026 · Spokane, Washington**
+
+- Collaborated as one of two web developers building lomp.ai; served as sole developer of Fetch, its browser game.
+
+### JAIK Solutions · Full Stack Web Developer
+
+**May 2022–May 2023 · Spokane, Washington**
+
+- Developed React components and pages from an existing prototype, implemented Node.js API methods, and collaborated with teammates on application behavior and fixes.
+
+**Additional experience:** Guitar Instructor, Rock School NW · August 2024–March 2026. Taught guitar, bass, and ukulele to students ages seven and older alongside the VectorNW role.
 
 ## Selected Projects
 
@@ -52,3 +66,8 @@ Created a coding agent with file, command, and browser tools, voice interaction,
 **Bachelor of Applied Science in DevOps Engineering**
 
 Spokane Community College · Spokane, Washington · June 2026
+
+
+**Associate of Applied Science in Software Development**
+
+Spokane Community College · Spokane, Washington · March 2022
