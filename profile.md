@@ -150,16 +150,6 @@ Message delivery has to preserve the relationship between a model’s tool calls
 
 The interface has its own engineering constraints. Streaming output, expanding blocks, and restored history need to preserve the reader’s position. The project documents the layout invariants behind that behavior and includes browser checks for transcript anchoring.
 
-## Nine Men’s Morris: search equivalence and report what is actually proven
-
-**C++ · Bitboards · Game-tree search · Browser interface**
-
-The engine represents positions as compact bitboards and uses alpha-beta search with a transposition table. Board symmetries map equivalent positions to a canonical representative; stored moves must then be transformed back to the real board’s coordinates.
-
-It also distinguishes a forced result from a horizon evaluation. Finding the best move is a different question from finding every equally good move: the root search accounts for tied alternatives rather than assuming that a cutoff proved them worse.
-
-The C++ server supplies legal moves to the browser interface. This is a compact example of algorithmic work carried through to an interactive application.
-
 ## Rex Vltimvs: the tactical battle inherits the strategic terrain
 
 **C++23 · SDL3 · Simulation · In development**
