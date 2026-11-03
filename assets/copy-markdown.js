@@ -3,6 +3,7 @@
   if (!source) return;
   const markdown = JSON.parse(source.textContent);
   for (const button of document.querySelectorAll('[data-copy-markdown]')) {
+    button.setAttribute('aria-live', 'polite');
     button.addEventListener('click', async () => {
       const original = button.textContent;
       let copied = false;
@@ -25,10 +26,8 @@
         button.focus();
       }
       button.textContent = copied ? 'Copied ✓' : 'Use the Markdown link to copy';
-      button.setAttribute('role', 'status');
       window.setTimeout(() => {
         button.textContent = original;
-        button.removeAttribute('role');
       }, 3000);
     });
   }
