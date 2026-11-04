@@ -35,7 +35,7 @@ Full-stack developer with sole ownership of a React administration application a
 
 ## Selected Projects
 
-### Bead Game · Godot, C#
+### Mended Strands · Godot, C#
 
 Developing Bough, a procedural body system connecting branching geometry, rigs, hitboxes, animation, and textures. Supplied geometric join specifications; integrated shared main-thread work budgets and texture-backed appearance data.
 

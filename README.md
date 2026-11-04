@@ -15,4 +15,4 @@ Use the `main` branch and root folder as the Pages publishing source.
 - `engineering.html` and `engineering.md`: independent project design decisions
 - `profile.md`: combined résumé, case study, and engineering notes available through Copy as Markdown
 
-Bead Game’s illustration is a labeled concept placeholder.
+Mended Strands’s illustration is a labeled concept placeholder.

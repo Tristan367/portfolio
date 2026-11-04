@@ -2,7 +2,7 @@
 
 The interesting part of a project is often the decision that makes several systems work together. These are selected examples from my independent work, alongside the professional application described in my client case study.
 
-## Bead Game: one body description, several connected systems
+## Mended Strands: one body description, several connected systems
 
 **Godot · C# · Procedural geometry · In development**
 
