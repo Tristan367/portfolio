@@ -6,3 +6,8 @@
 @media print{@page{size:Letter;margin:14mm}.doc h1{font-size:25pt;margin-bottom:10px}.doc h2{font-size:13pt;margin-top:17px;margin-bottom:8px}.doc h3{font-size:11pt;margin-top:13px;margin-bottom:6px}.doc p,.doc li{font-size:10.5pt;line-height:1.35}.doc p{margin-bottom:9px}.doc li{margin-bottom:5px}.doc ul{margin-top:6px;margin-bottom:10px}.doc-footer{display:none}}
 
 @media print{.skip{display:none!important}}
+
+@media print{:root{--bg:#fff;--ink:#111;--muted:#444;--line:#ccc;--accent:#1d4ed8}body{background:#fff;color:#111}.doc p,.doc li{color:#222}.doc strong{color:#111}.doc a{color:#1d4ed8}.doc h1{margin-bottom:4px}.doc h2{border-bottom:1px solid #ccc;padding-bottom:2px}}
+@media print{@page{size:Letter;margin:10mm 12mm}html,body{background:#fff!important}.doc h1{font-size:20pt;margin-bottom:2px}.doc h2{font-size:11.5pt;margin-top:9px;margin-bottom:5px}.doc h3{font-size:10pt;margin-top:7px;margin-bottom:1px}.doc p,.doc li{font-size:9.3pt;line-height:1.28}.doc p{margin-bottom:4px}.doc li{margin-bottom:2px}.doc ul{margin-top:2px;margin-bottom:4px}}
+@media print{:root{color-scheme:light}@page{margin:9mm 12mm}.doc p,.doc li{line-height:1.25}}
+@media print{.doc p,.doc li{font-size:9pt;line-height:1.22}.doc h2{margin-top:7px;margin-bottom:3px}.doc h3{margin-top:5px}.doc h1{font-size:18pt}}

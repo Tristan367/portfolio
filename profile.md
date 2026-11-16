@@ -2,75 +2,58 @@
 
 Spokane, Washington · t_johnson367@outlook.com · 509-944-0379 · [GitHub](https://github.com/Tristan367) · [Portfolio](https://tristan367.github.io/portfolio/)
 
-## Software Engineer
-
-Full-stack developer with sole ownership of a React administration application and its Node.js API, integrating existing commerce data and services. Independent work spans AI developer tools, local model applications, and procedural game systems. Recent bachelor’s graduate with around a decade of broader software experience.
+Full-stack developer. Most recently the sole developer of a company's internal store administration platform: React frontend, Node.js API, and the integration with a production SQL Server database owned by other people. I've been writing software for about ten years, three of them professionally. On my own time I build game engines, procedural systems, and AI developer tools.
 
 ## Experience
 
-### JAIK Solutions · Contract Full-Stack Developer
+### JAIK Solutions · Full-Stack Developer (Contract)
 
-**March 2026–present · Store Admin ownership: June–October 2026**
+**March 2026–October 2026 · Spokane, Washington**
 
-- Rebuilt most of a React 18 administration frontend and developed its Node.js backend on Azure Functions, implementing approximately 66 HTTP API endpoints.
-- Delivered catalog editing and publishing, order placement and servicing, reporting, and store settings; brought the application to feature-complete QA by October 2026.
-- Integrated shared SQL Server records with administrative data in Azure Cosmos DB through its MongoDB API and Mongoose, supporting workflows that depend on NetSuite-fed catalog data.
-- Built persistent drafts, autosave, version history, and publishing workflows; coordinated database and environment changes with the authorized infrastructure owners.
-- Maintained authentication and permissions using Microsoft Entra ID, MSAL, and API token validation. Added and maintained tests in an application with approximately 780 Jest tests.
-- Created an internal AI agent kit with repository guidance, reusable skills, and Playwright QA workflows. Used findings from development history to address recurring mock-data and false-success issues.
+Sole developer from June 2026 on a client's Store Admin platform, which staff use to run a membership storefront's catalog, orders, and reporting. Took over a mock-data prototype, rebuilt most of the frontend, and wrote nearly all of the backend (about 390 of 490 frontend and 165 of 190 backend commits).
+
+- Built a Node.js API on Azure Functions (66 endpoints behind Azure API Management) and moved all 15 of its data layers from seed data to Cosmos DB/Mongoose, with optimistic locking for concurrent edits.
+- Built the publish path from admin drafts into the SQL Server tables the live storefront reads, covering products, prices, variations, bundles, and visibility rules, and invalidated the storefront's Redis cache only when members would see the change.
+- Designed price and stock resolution as admin override, then SQL, then "unknown," never zero, so items without a stock record weren't silently pulled from sale.
+- Made deployed failures visible: a database outage returns a 503 instead of quietly serving demo data. Tracked down a Cosmos DB retryable-writes incompatibility that was breaking every save.
+- Fixed an inverted wildcard check in the permission logic and restricted the developer auth bypass to local environments. Maintained Entra ID/MSAL sign-in and JWT validation.
+- Wrote the team's agent instructions and Playwright QA tooling for AI-assisted development, aimed at a failure I kept seeing: generated code that reports success without actually doing the work.
 
 ### VectorNW · Web/Game Developer
 
 **October 2024–March 2026 · Spokane, Washington**
 
-- Collaborated as one of two web developers building lomp.ai; served as sole developer of Fetch, its browser game.
+- Built the frontend of lomp.ai, an early-stage AI marketplace, in Next.js and React from the designer's specs and mockups, deployed on AWS Amplify.
+- Wrote Fetch, the site's browser game, in vanilla JavaScript rendered entirely with CSS, with no canvas: a dog with drag, friction, and skid animations, pixel-perfect collisions, timed levels, and lives.
+- Made pickups cheap by checking only nearby cells of a spatial grid, using a precomputed circle of tile offsets around the player instead of measuring the distance to every bone each frame.
 
-### JAIK Solutions · Full Stack Web Developer
+### JAIK Solutions · Full-Stack Web Developer
 
 **May 2022–May 2023 · Spokane, Washington**
 
-- Developed React components and pages from an existing prototype, implemented Node.js API methods, and collaborated with teammates on application behavior and fixes.
+- Built React pages from an existing prototype and implemented Node.js API methods on a small team.
 
-**Additional experience:** Guitar Instructor, Rock School NW · August 2024–March 2026. Taught guitar, bass, and ukulele to students ages seven and older alongside the VectorNW role.
+**Also:** Guitar Instructor, Rock School NW, August 2024–March 2026.
 
-## Selected Projects
+## Projects
 
-### Mended Strands · Godot, C#
+**Mended Strands** · Godot, C#. A game built around procedural creatures: one branching body description generates each creature's mesh, skeleton, hitboxes, animation, and textures, so they stay consistent.
 
-Developing Bough, a procedural body system connecting branching geometry, rigs, hitboxes, animation, and textures. Supplied geometric join specifications; integrated shared main-thread work budgets and texture-backed appearance data.
+**Heart of the Witch King** · TypeScript, Node.js, local LLMs. An RPG where a language model narrates but can't cheat: it acts only through validated tools, and a deterministic rules engine decides what actually happens. Runs on local or hosted models.
 
-### Heart of the Witch King · TypeScript, Node.js, Local AI
+**Necromyth** · C++, Vulkan, SDL3. A voxel game on my own Vulkan engine. Creature skin weights come from the same scalar field that generates the body's surface.
 
-Developing a fantasy RPG that separates deterministic game rules from an AI referee acting through validated tools. Built an HTTP adapter for local and hosted models, Zod-backed validation, and automated tests using Node’s test runner. Earlier RPG work includes local image generation and model fine-tuning.
-
-### Necromyth · C++, Vulkan, SDL3
-
-Building a voxel game on a custom Vulkan engine. Procedural bodies derive mesh skin weights from the same scalar field that generates their surface, with role-based animation across body types.
-
-### MyriadCode · Python, FastAPI, SQLite, Agent Orchestration
-
-Built a self-hosted coding agent with script-defined tools, peer-session messaging, and configurable subagent tiers. Preserved tool-call ordering through queued message delivery and coordinated cancellation.
-
-### Assistant · Python, Agent Tools, Accessibility
-
-Created a coding agent with file, command, and browser tools, voice interaction, and desktop installer workflows. Designed it for people who may not use a terminal or mouse. [Project website](https://tristan367.github.io/basicagent/).
+**AI tooling** · Python, FastAPI. MyriadCode, a self-hosted multi-agent coding tool that keeps tool calls ordered across messaging and cancellation, and [Assistant](https://tristan367.github.io/basicagent/), a voice-driven coding agent for people who don't use a terminal or mouse.
 
 ## Skills
 
-**Web and data:** React, Node.js, REST APIs, Azure Functions, SQL Server, Cosmos DB / MongoDB API, Mongoose, Knex.  
-**Languages and systems:** JavaScript, TypeScript, Python, C#, C++, Godot, Vulkan, Linux, Git.  
-**Engineering and AI:** Jest, Testing Library, Playwright, Azure DevOps, authentication and permissions, local model inference, fine-tuning, AI agent tooling.
+**Web and data:** React, Node.js, REST APIs, Azure Functions, API Management, SQL Server, Cosmos DB/MongoDB, Mongoose, Knex, Redis
+
+**Languages and tools:** JavaScript, TypeScript, Python, C#, C++, Jest, Playwright, Azure DevOps CI, Git, Linux, Godot, Vulkan
 
 ## Education
 
-**Bachelor of Applied Science in DevOps Engineering**
-
-Spokane Community College · Spokane, Washington · June 2026
-
-
-**Associate of Applied Science in Software Development**
-
-Spokane Community College · Spokane, Washington · March 2022
+**BAS, DevOps Engineering** (2026) and **AAS, Software Development** (2022) · Spokane Community College
 
 
 ---
