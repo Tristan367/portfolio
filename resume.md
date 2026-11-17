@@ -33,7 +33,7 @@ Sole developer from June 2026 on a client's Store Admin platform, which staff us
 
 - Built React pages from an existing prototype and implemented Node.js API methods on a small team.
 
-**Also:** Guitar Instructor, Rock School NW, August 2024–March 2026.
+**Also:** Guitar Instructor, Rock School NW, August 2024–March 2026. Taught students from age seven to their sixties.
 
 ## Projects
 
