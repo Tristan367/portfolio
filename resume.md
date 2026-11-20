@@ -2,7 +2,7 @@
 
 Spokane, Washington · t_johnson367@outlook.com · 509-944-0379 · [GitHub](https://github.com/Tristan367) · [Portfolio](https://tristan367.github.io/portfolio/)
 
-Full-stack developer. Most recently the sole developer of a company's internal store administration platform: React frontend, Node.js API, and the integration with a production SQL Server database owned by other people. I've been writing software for about ten years, three of them professionally. On my own time I build game engines, procedural systems, and AI developer tools.
+Full-stack developer. Most recently the sole developer of a company's internal store administration platform: React frontend, Node.js API, and the integration with the existing production SQL Server database the live store runs on. I've been writing software for about ten years, three of them professionally. On my own time I build game engines, procedural systems, and AI developer tools.
 
 ## Experience
 

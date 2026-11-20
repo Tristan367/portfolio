@@ -2,7 +2,7 @@
 
 Spokane, Washington · t_johnson367@outlook.com · 509-944-0379 · [GitHub](https://github.com/Tristan367) · [Portfolio](https://tristan367.github.io/portfolio/)
 
-Full-stack developer. Most recently the sole developer of a company's internal store administration platform: React frontend, Node.js API, and the integration with a production SQL Server database owned by other people. I've been writing software for about ten years, three of them professionally. On my own time I build game engines, procedural systems, and AI developer tools.
+Full-stack developer. Most recently the sole developer of a company's internal store administration platform: React frontend, Node.js API, and the integration with the existing production SQL Server database the live store runs on. I've been writing software for about ten years, three of them professionally. On my own time I build game engines, procedural systems, and AI developer tools.
 
 ## Experience
 
@@ -64,7 +64,7 @@ Sole developer from June 2026 on a client's Store Admin platform, which staff us
 
 ## What I walked into
 
-A client needed an internal app for their staff to run a membership storefront: products, prices, orders, and reports. When I took it over in June 2026, it was a React prototype running on mock data. The real SQL Server database and the Azure infrastructure already existed, and other people owned them.
+A client needed an internal app for their staff to run a membership storefront: products, prices, orders, and reports. When I took it over in June 2026, it was a React prototype running on mock data. The real SQL Server database and the Azure infrastructure already existed and were in production.
 
 From June on I was the only developer. I rebuilt most of the frontend and wrote nearly all of the backend, about 390 of 490 frontend commits and 165 of 190 backend commits. I didn't have permission to change the database schema or production infrastructure, so when I needed something there, I wrote up exactly what and handed it to the person who did.
 
@@ -77,7 +77,7 @@ From June on I was the only developer. I rebuilt most of the frontend and wrote 
 - An admin data layer in Cosmos DB (MongoDB API) with optimistic locking, so two people editing the same product don't overwrite each other.
 - Sign-in and permissions through the company's Microsoft Entra ID setup.
 
-## Publishing to a database I didn't own
+## Publishing to the live store's database
 
 Saving a draft and publishing it are two different things. Drafts lived in the admin app's own Cosmos DB. The storefront read from SQL Server tables. Publishing meant writing products, prices, variations, bundles, and visibility rules into those tables, then clearing the storefront's Redis cache, but only when the change was something members would actually see.
 
