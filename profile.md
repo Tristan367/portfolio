@@ -58,57 +58,59 @@ Sole developer from June 2026 on a client's Store Admin platform, which staff us
 
 ---
 
-# Store administration, across the stack
+# The store admin platform at JAIK
 
 **JAIK Solutions · Client project · June–October 2026**
 
-## The assignment
+## What I walked into
 
-An internal store administration app needed to connect staff workflows to an existing member storefront. Its early React prototype relied on mock data. The underlying SQL Server database and infrastructure were already in place, with ownership shared across other team members.
+A client needed an internal app for their staff to run a membership storefront: products, prices, orders, and reports. When I took it over in June 2026, it was a React prototype running on mock data. The real SQL Server database and the Azure infrastructure already existed, and other people owned them.
 
-From June 2026, I was the sole developer on the administration platform. I rebuilt most of the frontend and developed its Node.js backend almost entirely from scratch. My scope covered the application and its integrations; database schema and production infrastructure permissions remained with their existing owners.
+From June on I was the only developer. I rebuilt most of the frontend and wrote nearly all of the backend, about 390 of 490 frontend commits and 165 of 190 backend commits. I didn't have permission to change the database schema or production infrastructure, so when I needed something there, I wrote up exactly what and handed it to the person who did.
 
 ## What I built
 
-- A React interface and an Azure Functions API with approximately 66 HTTP endpoints.
-- Product editing, persistent drafts, autosave, version history, and publishing to the records used by the member storefront.
-- Order placement and servicing for support staff, including order history, cancellations, refunds, and re-ships.
-- Store reporting, product statistics, and settings.
-- An administrative data layer in Azure Cosmos DB using its MongoDB API, integrated with the existing SQL Server system of record and NetSuite-fed catalog data.
-- Authentication and permission-aware workflows, maintained with the company’s Microsoft identity infrastructure.
+- A Node.js API on Azure Functions, 66 endpoints behind Azure API Management.
+- Product editing with drafts, autosave, version history, and publishing to the live store.
+- Order tools for support staff: history, cancellations, refunds, and re-ships.
+- Store reports, product stats, and settings.
+- An admin data layer in Cosmos DB (MongoDB API) with optimistic locking, so two people editing the same product don't overwrite each other.
+- Sign-in and permissions through the company's Microsoft Entra ID setup.
 
-## The integration problem
+## Publishing to a database I didn't own
 
-Saving an administrative draft and publishing a change to the storefront are different operations. The administration app held editorial and workflow data in its own store, while the member-facing application consumed shared SQL records.
+Saving a draft and publishing it are two different things. Drafts lived in the admin app's own Cosmos DB. The storefront read from SQL Server tables. Publishing meant writing products, prices, variations, bundles, and visibility rules into those tables, then clearing the storefront's Redis cache, but only when the change was something members would actually see.
 
-I traced that path across the applications and implemented publishing behavior that moved the intended changes into the storefront’s data, including cache invalidation when appropriate. I coordinated dependencies and environment changes with the teammates who controlled those systems.
+Price and stock were a small version of the same problem. I set it up so the app checks an admin override first, then SQL, and if it still has nothing, it says "unknown." It never falls back to zero, because zero stock quietly pulls an item off the store.
 
-## Keeping temporary behavior visible
+## The bugs I'm proudest of
 
-Some dependencies were still being built, so mock data helped unblock interface development. Over a long development cycle, however, a temporary fallback can start to look like a working integration.
+**Every save was failing.** Cosmos DB's MongoDB API doesn't support retryable writes, and the driver had them on by default. Turning that off fixed every save in the app at once.
 
-I replaced prototype seed-data paths with persistent storage and real data sources. I also made failure behavior explicit: local development could use a fallback, while deployed database failures needed to surface as failures rather than silently return demonstration data.
+**The permission check was backwards.** A wildcard check was inverted. I fixed it and made sure the developer login bypass only works on a local machine.
 
-That lesson informed a separate internal agent kit I created for the team. It brought together repository guidance, reusable skills, and Playwright QA workflows, with explicit attention to mock data and operations that appeared successful without completing their work.
+**Outages looked like a working app.** If the database went down, the deployed app quietly served demo data, so it looked fine while being completely wrong. Now a deployed outage returns a 503. Local development can still use sample data.
 
-## Delivery and collaboration
+## The agent kit
 
-I worked with the client’s QA process and maintained automated coverage in an application containing approximately 780 Jest tests. When I needed database or deployment changes, I prepared specific handoffs for the people with the required permissions.
+That last bug kept showing up in different forms: mock data that stuck around too long, and AI-written code that reported success without doing the work. So I wrote the team's agent kit, which included instructions for the coding agents, reusable skills, and Playwright QA checks aimed at exactly those two problems.
 
-By October 2026, the application was feature-complete and in QA. The result was an integrated administration platform in place of the disconnected prototype, with the frontend, API, and data workflows brought together under my development ownership.
+## Where it ended up
 
-## Technology
+The app has about 780 Jest tests. By October 2026 it was feature-complete and in the client's QA.
 
-React 18 · Node.js · Azure Functions · Azure API Management · SQL Server · Azure Cosmos DB / MongoDB API · Mongoose · Knex · Microsoft Entra ID / MSAL · Jest · Testing Library · Playwright · Azure DevOps
+## Tech
 
-*This summary describes my technical contributions at a high level. It omits client identity, private source code, customer data, and internal schema and endpoint details.*
+React 18 · Node.js · Azure Functions · Azure API Management · SQL Server · Cosmos DB (MongoDB API) · Mongoose · Knex · Redis · Entra ID / MSAL · Jest · Testing Library · Playwright · Azure DevOps
+
+*Client name, source code, customer data, and internal schema details are left out on purpose.*
 
 
 ---
 
-# Engineering decisions behind the projects
+# How my projects work
 
-The interesting part of a project is often the decision that makes several systems work together. These are selected examples from my independent work, alongside the professional application described in my client case study.
+More detail on the personal projects from my portfolio. For my client work, see the JAIK case study.
 
 ## Mended Strands: one body description, several connected systems
 
@@ -130,7 +132,7 @@ The TypeScript project connects to models over a configurable HTTP adapter using
 
 Content loads through a common mod pipeline with explicit define, replace, patch, and remove operations. Zod schemas, dependency checks, and reference validation catch malformed content before play. World-generation randomness is separate from live game rolls, so exploring a generated location does not consume the dice stream reserved for later actions. Node’s test runner and dedicated simulation tools support the growing rules engine.
 
-My earlier RPG experiments include local image generation and model fine-tuning; those should be distinguished from features currently integrated into this TypeScript version.
+Separately, I've fine-tuned an image model to get better at dragons, orcs, and goblins for an earlier version of the game. Fine-tuning a language model for this one comes after the harness stops changing.
 
 ## Necromyth: generate skinning from the same field as the body
 
@@ -140,7 +142,7 @@ A parameterized skeleton contributes to a scalar field. Marching cubes turns tha
 
 Animation uses bone roles, such as thigh, foot, spine, or wing, so behavior can apply across differently shaped bodies. The wider game combines streaming density-field terrain with cubic construction blocks and saves player edits as differences from the generated world.
 
-The Vulkan renderer is a separate engine project. The game’s simulation has also been separated from rendering in several systems. Multiplayer remains an architectural direction; the project status document explicitly identifies the server as a stub, so I do not present it as a working multiplayer game.
+The Vulkan renderer is a separate engine project. The game’s simulation has also been separated from rendering in several systems. It's built with multiplayer in mind, but the server is still a stub, so it isn't a multiplayer game yet.
 
 ## MyriadCode: agents that collaborate without corrupting their conversations
 
@@ -182,10 +184,10 @@ ImageGGUF exposes local image generation as a library and HTTP service, includin
 
 **Python · Offline speech · C · AVR microcontrollers**
 
-Soapbox runs local Whisper dictation and types into other applications. Packaging has to account for different desktop input mechanisms, including X11 and Wayland. Windows and Linux distributions are described in the project; the macOS code path is not presented as a verified release.
+Soapbox runs local Whisper dictation and types into other applications. Packaging has to account for different desktop input mechanisms, including X11 and Wayland. It has Windows and Linux builds. There's macOS code too, but I haven't verified it.
 
-My RC-car firmware uses an ATmega328P for receiver pulse measurement, two-motor mixing, and motor control. It includes receiver-loss handling and battery voltage states with warning, cutoff, and hysteresis. That work complements my interests in electronics and physical prototyping.
+My RC-car firmware uses an ATmega328P for receiver pulse measurement, two-motor mixing, and motor control. It includes receiver-loss handling and battery voltage states with warning, cutoff, and hysteresis. I like it when code has to move something real.
 
 ## How I work with AI
 
-I use coding agents throughout development. My role includes choosing the problem and constraints, designing system behavior, supplying geometric and interaction specifications, evaluating results, and deciding which changes earn their place in the project. These examples show the decisions I can discuss and demonstrate in an interview.
+I use coding agents for most of my development now. My job is picking the problem, deciding how the system should behave, drawing out the geometry and interactions when they're tricky, checking what comes back, and deciding what stays. Any of these projects, I can walk you through why it works the way it does.

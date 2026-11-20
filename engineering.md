@@ -1,6 +1,6 @@
-# Engineering decisions behind the projects
+# How my projects work
 
-The interesting part of a project is often the decision that makes several systems work together. These are selected examples from my independent work, alongside the professional application described in my client case study.
+More detail on the personal projects from my portfolio. For my client work, see the JAIK case study.
 
 ## Mended Strands: one body description, several connected systems
 
@@ -22,7 +22,7 @@ The TypeScript project connects to models over a configurable HTTP adapter using
 
 Content loads through a common mod pipeline with explicit define, replace, patch, and remove operations. Zod schemas, dependency checks, and reference validation catch malformed content before play. World-generation randomness is separate from live game rolls, so exploring a generated location does not consume the dice stream reserved for later actions. Node’s test runner and dedicated simulation tools support the growing rules engine.
 
-My earlier RPG experiments include local image generation and model fine-tuning; those should be distinguished from features currently integrated into this TypeScript version.
+Separately, I've fine-tuned an image model to get better at dragons, orcs, and goblins for an earlier version of the game. Fine-tuning a language model for this one comes after the harness stops changing.
 
 ## Necromyth: generate skinning from the same field as the body
 
@@ -32,7 +32,7 @@ A parameterized skeleton contributes to a scalar field. Marching cubes turns tha
 
 Animation uses bone roles, such as thigh, foot, spine, or wing, so behavior can apply across differently shaped bodies. The wider game combines streaming density-field terrain with cubic construction blocks and saves player edits as differences from the generated world.
 
-The Vulkan renderer is a separate engine project. The game’s simulation has also been separated from rendering in several systems. Multiplayer remains an architectural direction; the project status document explicitly identifies the server as a stub, so I do not present it as a working multiplayer game.
+The Vulkan renderer is a separate engine project. The game’s simulation has also been separated from rendering in several systems. It's built with multiplayer in mind, but the server is still a stub, so it isn't a multiplayer game yet.
 
 ## MyriadCode: agents that collaborate without corrupting their conversations
 
@@ -74,10 +74,10 @@ ImageGGUF exposes local image generation as a library and HTTP service, includin
 
 **Python · Offline speech · C · AVR microcontrollers**
 
-Soapbox runs local Whisper dictation and types into other applications. Packaging has to account for different desktop input mechanisms, including X11 and Wayland. Windows and Linux distributions are described in the project; the macOS code path is not presented as a verified release.
+Soapbox runs local Whisper dictation and types into other applications. Packaging has to account for different desktop input mechanisms, including X11 and Wayland. It has Windows and Linux builds. There's macOS code too, but I haven't verified it.
 
-My RC-car firmware uses an ATmega328P for receiver pulse measurement, two-motor mixing, and motor control. It includes receiver-loss handling and battery voltage states with warning, cutoff, and hysteresis. That work complements my interests in electronics and physical prototyping.
+My RC-car firmware uses an ATmega328P for receiver pulse measurement, two-motor mixing, and motor control. It includes receiver-loss handling and battery voltage states with warning, cutoff, and hysteresis. I like it when code has to move something real.
 
 ## How I work with AI
 
-I use coding agents throughout development. My role includes choosing the problem and constraints, designing system behavior, supplying geometric and interaction specifications, evaluating results, and deciding which changes earn their place in the project. These examples show the decisions I can discuss and demonstrate in an interview.
+I use coding agents for most of my development now. My job is picking the problem, deciding how the system should behave, drawing out the geometry and interactions when they're tricky, checking what comes back, and deciding what stays. Any of these projects, I can walk you through why it works the way it does.
