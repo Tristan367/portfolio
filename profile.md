@@ -16,7 +16,7 @@ Sole developer from June 2026 on a client's Store Admin platform, which staff us
 - Built the publish path from admin drafts into the SQL Server tables the live storefront reads, covering products, prices, variations, bundles, and visibility rules, and invalidated the storefront's Redis cache only when members would see the change.
 - Designed price and stock resolution as admin override, then SQL, then "unknown," never zero, so items without a stock record weren't silently pulled from sale.
 - Made deployed failures visible: a database outage returns a 503 instead of quietly serving demo data. Tracked down a Cosmos DB retryable-writes incompatibility that was breaking every save.
-- Fixed an inverted wildcard check in the permission logic and restricted the developer auth bypass to local environments. Maintained Entra ID/MSAL sign-in and JWT validation.
+- Restricted the developer login bypass to local environments, and maintained Entra ID/MSAL sign-in, JWT validation, and permission checks.
 - Wrote the team's agent instructions and Playwright QA tooling for AI-assisted development, aimed at a failure I kept seeing: generated code that reports success without actually doing the work.
 
 ### VectorNW · Web/Game Developer
@@ -87,7 +87,7 @@ Price and stock were a small version of the same problem. I set it up so the app
 
 **Every save was failing.** Cosmos DB's MongoDB API doesn't support retryable writes, and the driver had them on by default. Turning that off fixed every save in the app at once.
 
-**The permission check was backwards.** A wildcard check was inverted. I fixed it and made sure the developer login bypass only works on a local machine.
+**A login shortcut could reach real servers.** The developer bypass that skips sign-in is handy on your own machine and a security hole anywhere else. I locked it to local only.
 
 **Outages looked like a working app.** If the database went down, the deployed app quietly served demo data, so it looked fine while being completely wrong. Now a deployed outage returns a 503. Local development can still use sample data.
 

@@ -16,7 +16,7 @@ Sole developer from June 2026 on a client's Store Admin platform, which staff us
 - Built the publish path from admin drafts into the SQL Server tables the live storefront reads, covering products, prices, variations, bundles, and visibility rules, and invalidated the storefront's Redis cache only when members would see the change.
 - Designed price and stock resolution as admin override, then SQL, then "unknown," never zero, so items without a stock record weren't silently pulled from sale.
 - Made deployed failures visible: a database outage returns a 503 instead of quietly serving demo data. Tracked down a Cosmos DB retryable-writes incompatibility that was breaking every save.
-- Fixed an inverted wildcard check in the permission logic and restricted the developer auth bypass to local environments. Maintained Entra ID/MSAL sign-in and JWT validation.
+- Restricted the developer login bypass to local environments, and maintained Entra ID/MSAL sign-in, JWT validation, and permission checks.
 - Wrote the team's agent instructions and Playwright QA tooling for AI-assisted development, aimed at a failure I kept seeing: generated code that reports success without actually doing the work.
 
 ### VectorNW · Web/Game Developer
