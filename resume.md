@@ -37,7 +37,7 @@ Sole developer from June 2026 on a client's Store Admin platform, which staff us
 
 ## Projects
 
-**Mended Strands** · Godot, C#. A game built around procedural creatures: one branching body description generates each creature's mesh, skeleton, hitboxes, animation, and textures, so they stay consistent.
+**Chroma Rift** · Godot, C#. A game built around procedural creatures: one branching body description generates each creature's mesh, skeleton, hitboxes, animation, and textures, so they stay consistent.
 
 **Heart of the Witch King** · TypeScript, Node.js, local LLMs. An RPG where a language model narrates but can't cheat: it acts only through validated tools, and a deterministic rules engine decides what actually happens. Runs on local or hosted models.
 

@@ -37,7 +37,7 @@ Sole developer from June 2026 on a client's Store Admin platform, which staff us
 
 ## Projects
 
-**Mended Strands** · Godot, C#. A game built around procedural creatures: one branching body description generates each creature's mesh, skeleton, hitboxes, animation, and textures, so they stay consistent.
+**Chroma Rift** · Godot, C#. A game built around procedural creatures: one branching body description generates each creature's mesh, skeleton, hitboxes, animation, and textures, so they stay consistent.
 
 **Heart of the Witch King** · TypeScript, Node.js, local LLMs. An RPG where a language model narrates but can't cheat: it acts only through validated tools, and a deterministic rules engine decides what actually happens. Runs on local or hosted models.
 
@@ -112,7 +112,7 @@ React 18 · Node.js · Azure Functions · Azure API Management · SQL Server · 
 
 More detail on the personal projects from my portfolio. For my client work, see the JAIK case study.
 
-## Mended Strands: one body description, several connected systems
+## Chroma Rift: one body description, several connected systems
 
 **Godot · C# · Procedural geometry · In development**
 
