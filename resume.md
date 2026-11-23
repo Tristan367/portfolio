@@ -10,7 +10,7 @@ Full-stack developer. Most recently the sole developer of a company's internal s
 
 **March 2026–October 2026 · Spokane, Washington**
 
-Sole developer from June 2026 on a client's Store Admin platform, which staff use to run a membership storefront's catalog, orders, and reporting. Took over a mock-data prototype, rebuilt most of the frontend, and wrote nearly all of the backend (about 390 of 490 frontend and 165 of 190 backend commits).
+Sole developer from June 2026 on a client's Store Admin platform, which staff use to run a membership storefront's catalog, orders, and reporting. Took over a mock-data prototype, rebuilt most of the frontend, and wrote nearly all of the backend (about 390 of 490 frontend and 165 of 190 backend commits). It reached client QA with about 780 Jest tests.
 
 - Built a Node.js API on Azure Functions (66 endpoints behind Azure API Management) and moved all 15 of its data layers from seed data to Cosmos DB/Mongoose, with optimistic locking for concurrent edits.
 - Built the publish path from admin drafts into the SQL Server tables the live storefront reads, covering products, prices, variations, bundles, and visibility rules, and invalidated the storefront's Redis cache only when members would see the change.
@@ -49,7 +49,7 @@ Sole developer from June 2026 on a client's Store Admin platform, which staff us
 
 **Web and data:** React, Node.js, REST APIs, Azure Functions, API Management, SQL Server, Cosmos DB/MongoDB, Mongoose, Knex, Redis
 
-**Languages and tools:** JavaScript, TypeScript, Python, C#, C++, Jest, Playwright, Azure DevOps CI, Git, Linux, Godot, Vulkan
+**Languages and tools:** JavaScript, TypeScript, Java, Kotlin, C#, C++, Python, Jest, Playwright, Azure DevOps CI, Git, Linux, Godot, Vulkan
 
 ## Education
 
