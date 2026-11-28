@@ -39,7 +39,7 @@ Sole developer from June 2026 on a client's Store Admin platform, which staff us
 
 **Chroma Rift** · Godot, C#. A game built around procedural creatures: one branching body description generates each creature's mesh, skeleton, hitboxes, animation, and textures, so they stay consistent.
 
-**Heart of the Witch King** · TypeScript, Node.js, local LLMs. An RPG where a language model narrates but can't cheat: it acts only through validated tools, and a deterministic rules engine decides what actually happens. Runs on local or hosted models.
+**Heart of the Witch King** · TypeScript, Node.js, local LLMs. An RPG where a language model is the game master, grounded by validated tools and a deterministic rules engine. Runs on local or hosted models.
 
 **Necromyth** · C++, Vulkan, SDL3. A voxel game on my own Vulkan engine. Creature skin weights come from the same scalar field that generates the body's surface.
 
