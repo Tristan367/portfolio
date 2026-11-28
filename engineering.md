@@ -2,7 +2,7 @@
 
 More detail on the personal projects from my portfolio. For my client work, see the JAIK case study.
 
-## Chroma Rift: one body description, several connected systems
+## Bead Game: one body description, several connected systems
 
 **Godot · C# · Procedural geometry · In development**
 
